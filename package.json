@@ -1,5 +1,5 @@
 {
-  "name": "communitysharing",
+  "name": "stuffshare",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -25,5 +25,6 @@
     "passport": "^0.4.0",
     "path": "^0.12.7",
     "sequelize": "^4.27.0"
-  }
+  },
+  "devDependencies": {}
 }
