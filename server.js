@@ -1,5 +1,8 @@
 var express = require("express");
 var bodyParser = require("body-parser");
+var db = require('./models');
+
+
 
 var port = process.env.PORT || 8080;
 
@@ -16,8 +19,11 @@ app.set("view engine", "handlebars");
 
 var routes = require("./app/controllers/stuffshare_controller.js");
 
+db.sequelize.sync().then(function() {
+	app.listen(port, function() {
+	console.log("Listening on port: " + port);
+	});
+});
+
 app.use("/", routes);
 
-app.listen(port, function() {
-	console.log("Listening on port: " + port);
-});

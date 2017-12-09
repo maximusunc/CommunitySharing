@@ -2,24 +2,24 @@ module.exports = function(sequelize, DataTypes) {
 	var Share = sequelize.define("Share", {
 		shared_date: {
 		        type: 'TIMESTAMP',
-		        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+		        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
 		        allowNull: false
 		    },
 		returned_date: {
 			type: 'TIMESTAMP',
-			defaultValue: Sequelize.literal('CURRENT_TIMESTAMP'),
+			defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
 			allowNull: false
 		}
 
 	});
 
 	Share.associate = function(models) {
-		Share.hasOne(models.User, {
+		Share.belongsTo(models.User, {
 			foreignKey: {
 					allowNull: false
 				}
 			});
-		Share.hasOne(models.Item, {
+		Share.belongsTo(models.Item, {
 			foreignKey: {
 				allowNull: false
 			}

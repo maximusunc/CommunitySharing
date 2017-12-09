@@ -15,15 +15,12 @@ module.exports = function(sequelize, DataTypes) {
 	});
 
 	Item.associate = function(models) {
-		Item.hasOne(models.User, {
+		Item.belongsTo(models.User, {
 			foreignKey: {
 				allowNull: false
 			}
 		});
-		Item.hasOne(models.Share, {
-			foreignKey: {
-				allowNull: false
-			}
+		Item.hasMany(models.Share, {
 		});
 	};
 

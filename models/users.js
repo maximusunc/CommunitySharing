@@ -55,17 +55,10 @@ module.exports = function(sequelize, DataTypes) {
 	User.associate = function(models) {
 		User.hasMany(models.Item, {
 			onDelete: "CASCADE"
-			},
-			foreignKey: {
-				allowNull: false
-			});
+		});
 		User.hasMany(models.Share, {
-			onDelete: "CASCADE",
-			},
-			foreignKey: {
-				allowNull: false
-			});
-		}
+			onDelete: "CASCADE"
+		});
 	}
 	return User;
 };
