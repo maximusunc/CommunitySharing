@@ -14,8 +14,10 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var routes = require("./controllers/stuffshare_controller.js");
+var routes = require("./app/controllers/stuffshare_controller.js");
 
 app.use("/", routes);
 
-app.listen(port);
+app.listen(port, function() {
+	console.log("Listening on port: " + port);
+});
