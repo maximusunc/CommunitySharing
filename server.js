@@ -17,7 +17,7 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-var routes = require("./app/controllers/stuffshare_controller.js");
+var routes = require("./app/routes/html-routes.js");
 
 db.sequelize.sync().then(function() {
 	app.listen(port, function() {

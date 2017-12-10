@@ -7,3 +7,7 @@
 
 // borrow - have drop down list with categories, and search button to list items available in that category.
 // click item will send email to owner with share request info
+
+var express = require("express");
+var router = express.Router();
+module.exports = router;
