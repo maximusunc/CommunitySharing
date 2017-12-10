@@ -1,11 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
 	var Share = sequelize.define("Share", {
-		shared_date: {
+		share_date: {
 		        type: 'TIMESTAMP',
 		        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
 		        allowNull: false
 		    },
-		returned_date: {
+		return_date: {
 			type: 'TIMESTAMP',
 			defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
 			allowNull: false
