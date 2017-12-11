@@ -1,11 +1,19 @@
-// api routes for Items table
-var db = require("../models");
+// api routes for Item table
+var db = require("../../models");
 
 module.exports = function(app) {
+//  get - /api/items - show all items
+    app.get("/api/items", function (req, res) {
+        db.Item.findAll({
+            include: [db.Users]
+        }).then(function (dbItem) {
+            res.json(dbItem);
+        });
+    });
 
 //  get - /api/items/:userId - show list of your items
-    app.get("/api/items/:UserId", function(req, res) {
-        db.Items.findAll({
+    app.get("/api/items/user/:UserId", function(req, res) {
+        db.Item.findAll({
             where: {
                 UserId: req.params.id
             },
@@ -17,7 +25,7 @@ module.exports = function(app) {
 
 // get - api/items/:category - show list of items in category
     app.get("/api/items/:Category", function (req, res) {
-        db.Items.findAll({
+        db.Item.findAll({
             where: {
                 Category: req.params.category
             },
@@ -35,18 +43,20 @@ module.exports = function(app) {
     });
 
 // update - /api/itmes/:id - update item name or description
-    app.put("/api/items", function(req, res) {
-        db.Item.update(req.body),
-        {
-            where: 
-            id: req.body.id
-        }
-    }).then(function(dbItem) {
-        res.json(dbItem);
+    app.put("/api/items", function (req, res) {
+        db.Item.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.id
+                }
+            }).then(function (dbPost) {
+                res.json(dbPost);
+            });
     });
 
     // delete - /api/items:id - delete item
-    app.delete(/api/items/:id, function(req, res) {
+    app.delete("/api/items/:id", function(req, res) {
         db.Item.destroy({
             where: {
                 id: req.params.id
