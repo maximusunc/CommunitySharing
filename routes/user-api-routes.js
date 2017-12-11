@@ -23,17 +23,19 @@ module.exports = function (app) {
 
 // update - /api/users/:id - update your user info
     app.put("/api/users", function (req, res) {
-        db.User.update(req.body),
+        db.User.update(
+            req.body,
             {
-                where:
+                where: {
                     id: req.body.id
-            }
-    }).then(function (dbUser) {
-        res.json(dbUser);
+                }
+            }).then(function (dbPost) {
+                res.json(dbPost);
+            });
     });
 
 // delete - /api/users/:id
-    app.delete(/api/items /: id, function (req, res) {
+    app.delete("/api/items/:id", function (req, res) {
         db.User.destroy({
             where: {
                 id: req.params.id

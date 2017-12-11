@@ -1,5 +1,5 @@
 // api routes for Item table
-var db = require("../../models");
+var db = require("../models");
 
 module.exports = function(app) {
 //  get - /api/items - show all items
