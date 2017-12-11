@@ -9,9 +9,5 @@
 // click item will send email to owner with share request info
 
 var express = require("express");
-
-module.exports = function(app) {
-    app.get("/", function(req, res) {
-        res.sendFile(path.join(__dirname, "../public/index.html"))
-    });
-};
+var router = express.Router();
+module.exports = router;
