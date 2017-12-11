@@ -2,6 +2,13 @@
 var db = require("../models");
 
 module.exports = function (app) {
+// get - /api/users - list all users
+    app.get("/api/users/", function (req, res) {
+        db.User.findAll({
+        }).then(function (dbUser) {
+            res.json(dbUser);
+        });
+    });
 
 // get - /api/users/:id - list user info of logged in user
     app.get("/api/users/:id", function (req, res) {

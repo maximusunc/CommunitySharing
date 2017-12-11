@@ -12,7 +12,11 @@ module.exports = function(sequelize, DataTypes) {
 			return_date: {
 			type: 'DATETIME',			
 			allowNull: true
-		}
+			},
+			borrowerId: {
+				type: INTEGER,
+				allowNull: false
+			}
 
 	});
 
