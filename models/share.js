@@ -1,15 +1,22 @@
 module.exports = function(sequelize, DataTypes) {
 	var Share = sequelize.define("Share", {
-		shared_date: {
-		        type: 'TIMESTAMP',
-		        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+		share_date: {
+		        type: DataTypes.DATE,
+		        defaultValue: sequelize.NOW,
 		        allowNull: false
 		    },
-		returned_date: {
-			type: 'TIMESTAMP',
-			defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
-			allowNull: false
-		}
+		    promise_date: {
+		    	type: DataTypes.DATEONLY,
+		    	allowNull: true
+		    },
+			return_date: {
+			type: DataTypes.DATE,			
+			allowNull: true
+			},
+			borrowerId: {
+				type: DataTypes.INTEGER,
+				allowNull: false
+			}
 
 	});
 

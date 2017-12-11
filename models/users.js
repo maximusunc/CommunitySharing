@@ -24,10 +24,7 @@ module.exports = function(sequelize, DataTypes) {
 			},
 			address2: {
 				type: DataTypes.STRING,
-				allowNull: false,
-				validate: {
-					len: [2,100]
-				}
+				allowNull: true,
 			},
 			city: {
 				type: DataTypes.STRING,
@@ -48,6 +45,13 @@ module.exports = function(sequelize, DataTypes) {
 				allowNull: false,
 				validate: {
 					len: [2,100]
+				}
+			},
+			password: {
+				type: DataTypes.STRING,
+				allowNull: false,
+				validate: {
+					len: [2,30]
 				}
 			}
 		});
