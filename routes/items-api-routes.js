@@ -23,7 +23,7 @@ module.exports = function(app) {
     });
 
 // get - api/items/:category - show list of items in category
-    app.get("/api/items/category/:Category", function (req, res) {
+    app.get("/api/items/category/:category", function (req, res) {
         db.Item.findAll({
             where: {
                 category: req.params.category

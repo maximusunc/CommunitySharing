@@ -15,6 +15,10 @@ module.exports = function(sequelize, DataTypes) {
 		category: {
 			type: DataTypes.STRING,
 			allowNull: false,
+		},
+		borrowed: {
+			type: DataTypes.BOOLEAN,
+			defaultValue: true
 		}
 	});
 

@@ -21,7 +21,7 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 require("./routes/items-api-routes.js")(app);
-require("./routes/share-api-routes.js");
+require("./routes/share-api-routes.js")(app);
 require("./routes/user-api-routes.js")(app);
 require("./routes/html-routes.js");
 
