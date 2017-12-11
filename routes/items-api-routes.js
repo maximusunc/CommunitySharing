@@ -4,32 +4,30 @@ var db = require("../models");
 module.exports = function(app) {
 //  get - /api/items - show all items
     app.get("/api/items", function (req, res) {
+        console.log("api/items");
         db.Item.findAll({
-            include: [db.Users]
         }).then(function (dbItem) {
             res.json(dbItem);
         });
     });
 
-//  get - /api/items/:userId - show list of your items
-    app.get("/api/items/user/:UserId", function(req, res) {
+//  get - /api/items/user/:userId - show list of your items
+    app.get("/api/items/user/:userid", function(req, res) {
         db.Item.findAll({
             where: {
-                UserId: req.params.id
+                UserId: req.params.userid
             },
-            include: [db.Users]
         }).then(function(dbItem) {
             res.json(dbItem);
         });
     });
 
 // get - api/items/:category - show list of items in category
-    app.get("/api/items/:Category", function (req, res) {
+    app.get("/api/items/category/:Category", function (req, res) {
         db.Item.findAll({
             where: {
-                Category: req.params.category
+                category: req.params.category
             },
-            include: [db.Users]
         }).then(function (dbItem) {
             res.json(dbItem);
         });
