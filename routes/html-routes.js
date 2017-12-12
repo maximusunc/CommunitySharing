@@ -10,4 +10,20 @@
 
 var express = require("express");
 var router = express.Router();
+
+router.get("/", function(req, res) {
+    var obj = {};
+    res.render("index", obj);
+});
+
+router.get("/user", function(req, res) {
+    var obj = {};
+    res.render("user", obj);
+});
+
+router.get("/item", function(req, res) {
+    var obj = {};
+    res.render("item", obj);
+});
+
 module.exports = router;
