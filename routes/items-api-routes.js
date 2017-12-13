@@ -6,6 +6,9 @@ module.exports = function(app) {
     app.get("/api/items", function (req, res) {
         console.log("api/items");
         db.Item.findAll({
+            include: [{
+                model: db.User
+            }]
         }).then(function (dbItem) {
             res.json(dbItem);
         });
@@ -17,6 +20,9 @@ module.exports = function(app) {
             where: {
                 UserId: req.params.userid
             },
+            include: [{
+                model: db.User
+            }]
         }).then(function(dbItem) {
             res.json(dbItem);
         });
@@ -28,6 +34,9 @@ module.exports = function(app) {
             where: {
                 category: req.params.category
             },
+            include: [{
+                model: db.User
+            }]
         }).then(function (dbItem) {
             res.json(dbItem);
         });

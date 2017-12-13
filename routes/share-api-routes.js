@@ -17,7 +17,12 @@ var db = require("../models");
 module.exports = function (app) {
     // api routes for shared items
     app.get("/api/shares/", function (req, res) {
-        db.Share.findAll({
+        db.Share.findAll({ include: [{
+            model: db.User,
+            include: [{
+                model: db.Item
+            }]
+        }]
         }).then(function (dbShare) {
             res.json(dbShare);
         });
@@ -28,7 +33,14 @@ module.exports = function (app) {
         db.Share.findAll({
             where: {
                 UserId: req.params.userid
-            }
+            }, 
+            include: [{
+                model: db.Item,
+                include: [{
+                    model: db.User,
+                    where: {id: req.params.userid}
+                }]
+            }]
         }).then(function (dbShare) {
             res.json(dbShare);
         });
