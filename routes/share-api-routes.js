@@ -17,10 +17,8 @@ var db = require("../models");
 module.exports = function (app) {
     // api routes for shared items
     app.get("/api/shares/", function (req, res) {
-        db.Share.findAll({ include: [
-            {model: db.User}, 
-            {model: db.Item}
-        ]
+        db.Share.findAll({ 
+            include: ["Owner", "Borrower"]
         }).then(function (dbShare) {
             res.json(dbShare);
         });

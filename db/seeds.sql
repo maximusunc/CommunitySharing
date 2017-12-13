@@ -8,6 +8,6 @@ INSERT INTO Items (name, description, category, UserId, createdAt, updatedAt)
 VALUES ("Chainsaw", "18 in. gas powered chain saw", "Tools", "1","2017-12-10T10:24:00","2017-12-10T10:24:00"),("Router", "electric table router", "Tools", "1","2017-12-25T10:24:00","2017-12-25T10:24:00"
 );
 
-INSERT INTO Shares (share_date, promise_date, createdAt, updatedAt, ItemId, UserId, borrowerId)
-VALUES ("2017-12-10T10:24:00", "2017-12-20", "2017-12-10T10:24:00", "2017-12-10T10:24:00", "1", "1", "1" ),("2017-12-25T10:24:00", "2018-01-02", "2017-12-10T10:24:00", "2017-12-10T10:24:00", "2", "1", "2"
-)
+INSERT INTO Shares (share_date, promise_date, createdAt, updatedAt, ItemId, OwnerId, BorrowerId, UserId)
+VALUES ("2017-12-10T10:24:00", "2017-12-20", "2017-12-10T10:24:00", "2017-12-10T10:24:00", "1", "2", "1", "2" ),("2017-12-25T10:24:00", "2018-01-02", "2017-12-10T10:24:00", "2017-12-10T10:24:00", "2", "1", "2", "1"
+);

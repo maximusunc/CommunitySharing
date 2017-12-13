@@ -61,10 +61,10 @@ module.exports = function(sequelize, DataTypes) {
 			onDelete: "CASCADE"
 		});
 		User.hasMany(models.Share, {
-			foreignKey: 'UserId',
+			as: 'UserId',
 			onDelete: "CASCADE"
 		});
-		User.hasMany(models.Share, {foreignKey: 'borrowerId'})
+		User.hasMany(models.Share, {as: 'borrowerId'})
 	}
 	return User;
 };
