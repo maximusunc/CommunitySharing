@@ -18,7 +18,7 @@ module.exports = function (app) {
     // api routes for shared items
     app.get("/api/shares/", function (req, res) {
         db.Share.findAll({ 
-            include: ["Owner", "Borrower"]
+            include: ["Owner", "Borrower", "Item"]
         }).then(function (dbShare) {
             res.json(dbShare);
         });
