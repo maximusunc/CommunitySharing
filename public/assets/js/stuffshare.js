@@ -1,7 +1,7 @@
 // front end js file
 
 var login = function() {
-    $.ajax("/api/users/:id", {
+    $.ajax("/api/users/:email", {
         type: "GET"
     }).then(function() {
         console.log("Loaded User Page");
@@ -10,21 +10,43 @@ var login = function() {
 
 $("#newUser").on("click", function(event) {
     event.preventDefault();
-    var newUser; //form submitted
+    var newUser = {
+        name: $("#newName").val().trim(),
+        email: $("#newEmail").val().trim(),
+        address1: $("#address1").val().trim(),
+        address2: $("#address2").val().trim(),
+        city: $("#city").val().trim(),
+        state: $("state").val().trim(),
+        zip: $("#zip").val().trim(),
+        password: $("#newPassword").val().trim()
+    };
     $.ajax("/api/users", {
         type: "POST",
         data: newUser
     }).then(function() {
         console.log("User successfully created");
-        login();
+        $.ajax("/api/users/:" + email, {
+            type: "GET"
+        }).then(function() {
+            console.log("Loaded User Page");
+        });
     });
 });
 
 $("#login").on("click", function(event) {
-    login();
+    var email = "email";
+    // $("#email").val().trim();
+    var pswd = "password";
+    // $("#password").val().trim();
+    // validate(email, password);
+    $.ajax("/api/users/:" + email, {
+        type: "GET"
+    }).then(function() {
+        console.log("Loaded User Page");
+    });
 });
 
-$("#update").on("click", function(event) {
+$("#updateUser").on("click", function(event) {
     //modal pop up
     var updateUser; //form submitted
     $.ajax("/api/users/:id", {
@@ -36,7 +58,7 @@ $("#update").on("click", function(event) {
     });
 });
 
-$("#delete").on("click", function(event) {
+$("#deleteUser").on("click", function(event) {
     $.ajax("/api/users/:id", {
         type: "DELETE"
     }).then(function() {
@@ -44,7 +66,7 @@ $("#delete").on("click", function(event) {
     });
 });
 
-$("#category").on("click", function(event) {
+$("#itemCategory").on("click", function(event) {
     var category = $(this).val();
     $.ajax("/api/items/category/:" + category, {
         type: "GET"
