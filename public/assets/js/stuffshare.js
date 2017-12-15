@@ -48,17 +48,18 @@ $(function() {
         });
     });
     
-    $("#updateUser").on("click", function(event) {
-        //modal pop up
-        var updateUser; //form submitted
-        $.ajax("/api/users/:id", {
-            type: "PUT",
-            data: updateUser
-        }).then(function() {
-            //modal Successfully updated
-            console.log("Successfully updated");
-        });
-    });
+    // V2 Option
+    // $("#updateUser").on("click", function(event) {
+    //     //modal pop up
+    //     var updateUser; //form submitted
+    //     $.ajax("/api/users/:id", {
+    //         type: "PUT",
+    //         data: updateUser
+    //     }).then(function() {
+    //         //modal Successfully updated
+    //         console.log("Successfully updated");
+    //     });
+    // });
     
     $("#deleteUser").on("click", function(event) {
         $.ajax("/api/users/:id", {
@@ -76,7 +77,7 @@ $(function() {
             console.log("Items successfully requested");
         });
     });
-    
+
     $("#createItem").on("click", function(event) {
         var newItem; //form submitted
         $.ajax("/api/items", {
