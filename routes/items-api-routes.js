@@ -14,6 +14,15 @@ module.exports = function(app) {
         });
     });
 
+    //  get categories
+    app.get("/api/items/categories", function (req, res) {
+        db.Item.findAll({
+          attributes: ['category']
+        }).then(function (dbItem) {
+            res.json(dbItem);
+        });
+    });
+
 //  get - /api/items/user/:userId - show list of your items
     app.get("/api/items/user/:userid", function(req, res) {
         db.Item.findAll({
