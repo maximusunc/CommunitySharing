@@ -10,6 +10,7 @@
 
 var express = require("express");
 var router = express.Router();
+var db = require("../models");
 
 router.get("/", function(req, res) {
     var obj = {};
@@ -22,8 +23,10 @@ router.get("/user", function(req, res) {
 });
 
 router.get("/item", function(req, res) {
-    var obj = {};
-    res.render("item", obj);
+    db.sequelize.query("SELECT DISTINCT(category) AS category FROM Items ORDER BY category ASC;").spread((results, metadata) => {
+    var obj = { categories: results.map(elem => elem.category)};
+    res.render("test", obj);
+    })
 });
 
 module.exports = router;
