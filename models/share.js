@@ -12,20 +12,21 @@ module.exports = function(sequelize, DataTypes) {
 			return_date: {
 			type: DataTypes.DATE,			
 			allowNull: true
-			},
-			borrowerId: {
-				type: DataTypes.INTEGER,
-				allowNull: false
 			}
 
 	});
 
 	Share.associate = function(models) {
-		Share.belongsTo(models.User, {
+		Share.belongsTo(models.User, {as: 'Owner',
 			foreignKey: {
 					allowNull: false
 				}
 			});
+		Share.belongsTo(models.User, {as: 'Borrower', 
+			foreignKey: {
+				allowNull: false
+			}
+		});
 		Share.belongsTo(models.Item, {
 			foreignKey: {
 				allowNull: false
@@ -34,6 +35,5 @@ module.exports = function(sequelize, DataTypes) {
 	};
 
 	return Share;
-
 };
 
