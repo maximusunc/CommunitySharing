@@ -1,103 +1,107 @@
 // front end js file
-
-var login = function() {
-    $.ajax("/api/users/:email", {
-        type: "GET"
-    }).then(function() {
-        console.log("Loaded User Page");
+$(function() {
+    var login = function() {
+        $.ajax("/api/users/:email", {
+            type: "GET"
+        }).then(function() {
+            console.log("Loaded User Page");
+        });
+    }
+    
+    $("#newUser").on("click", function(event) {
+        console.log("test");
+        event.preventDefault();
+        var newUser = {
+            name: $("#newName").val().trim(),
+            email: $("#newEmail").val().trim(),
+            address1: $("#address1").val().trim(),
+            address2: $("#address2").val().trim(),
+            city: $("#city").val().trim(),
+            state: $("#state").val().trim(),
+            zip: $("#zip").val().trim(),
+            password: $("#newPassword").val().trim()
+        };
+        console.log(newUser);
+        $.ajax("/api/users", {
+            type: "POST",
+            data: newUser
+        }).then(function() {
+            console.log("User successfully created");
+            $.ajax("/api/users/:" + email, {
+                type: "GET"
+            }).then(function() {
+                console.log("Loaded User Page");
+            });
+        });
     });
-}
-
-$("#newUser").on("click", function(event) {
-    event.preventDefault();
-    var newUser = {
-        name: $("#newName").val().trim(),
-        email: $("#newEmail").val().trim(),
-        address1: $("#address1").val().trim(),
-        address2: $("#address2").val().trim(),
-        city: $("#city").val().trim(),
-        state: $("state").val().trim(),
-        zip: $("#zip").val().trim(),
-        password: $("#newPassword").val().trim()
-    };
-    $.ajax("/api/users", {
-        type: "POST",
-        data: newUser
-    }).then(function() {
-        console.log("User successfully created");
+    
+    $("#login").on("click", function(event) {
+        var email = "email";
+        // $("#email").val().trim();
+        var pswd = "password";
+        // $("#password").val().trim();
+        // validate(email, password);
         $.ajax("/api/users/:" + email, {
             type: "GET"
         }).then(function() {
             console.log("Loaded User Page");
         });
     });
-});
-
-$("#login").on("click", function(event) {
-    var email = "email";
-    // $("#email").val().trim();
-    var pswd = "password";
-    // $("#password").val().trim();
-    // validate(email, password);
-    $.ajax("/api/users/:" + email, {
-        type: "GET"
-    }).then(function() {
-        console.log("Loaded User Page");
+    
+    $("#updateUser").on("click", function(event) {
+        //modal pop up
+        var updateUser; //form submitted
+        $.ajax("/api/users/:id", {
+            type: "PUT",
+            data: updateUser
+        }).then(function() {
+            //modal Successfully updated
+            console.log("Successfully updated");
+        });
+    });
+    
+    $("#deleteUser").on("click", function(event) {
+        $.ajax("/api/users/:id", {
+            type: "DELETE"
+        }).then(function() {
+            console.log("Successfully deleted");
+        });
+    });
+    
+    $("#itemCategory").on("click", function(event) {
+        var category = $(this).val();
+        $.ajax("/api/items/category/:" + category, {
+            type: "GET"
+        }).then(function() {
+            console.log("Items successfully requested");
+        });
+    });
+    
+    $("#createItem").on("click", function(event) {
+        var newItem; //form submitted
+        $.ajax("/api/items", {
+            type: "POST",
+            data: newItem
+        }).then(function() {
+            console.log("Successfully created item");
+            //reload page on backend.
+        });
+    });
+    
+    $("#updateItem").on("click", function(event) {
+        //maybe we don't allow update yet.
+    });
+    
+    $("#deleteItem").on("click", function(event) {
+        var id = $(this).attr("id");
+        $.ajax("/api/items/:" + id, {
+            type: "DELETE"
+        }).then(function() {
+            console.log("Successfully deleted");
+            //reload page on backend.
+        });
     });
 });
 
-$("#updateUser").on("click", function(event) {
-    //modal pop up
-    var updateUser; //form submitted
-    $.ajax("/api/users/:id", {
-        type: "PUT"
-        data: updateUser
-    }).then(function() {
-        //modal Successfully updated
-        console.log("Successfully updated");
-    });
-});
-
-$("#deleteUser").on("click", function(event) {
-    $.ajax("/api/users/:id", {
-        type: "DELETE"
-    }).then(function() {
-        console.log("Successfully deleted");
-    });
-});
-
-$("#itemCategory").on("click", function(event) {
-    var category = $(this).val();
-    $.ajax("/api/items/category/:" + category, {
-        type: "GET"
-    }).then(function() {
-        console.log("Items successfully requested");
-    });
-});
-
-$("#createItem").on("click", function(event) {
-    var newItem; //form submitted
-    $.ajax("/api/items", {
-        type: "POST",
-        data: newItem
-    }).then(function() {
-        console.log("Successfully created item");
-        //reload page on backend.
-    });
-});
-
-$("#updateItem").on("click", function(event) {
-    //maybe we don't allow update yet.
-});
-
-$("#deleteItem").on("click", function(event) {
-    var id = $(this).attr("id");
-    $.ajax("/api/items/:" + id, {
-        type: "DELETE"
-    }).then(function() {
-        console.log("Successfully deleted");
-        //reload page on backend.
-    });
-});
 
 
