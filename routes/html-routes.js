@@ -7,7 +7,7 @@
 
 // borrow - have drop down list with categories, and search button to list items available in that category.
 // click item will send email to owner with share request info
-
+var db = require("../models");
 var express = require("express");
 var router = express.Router();
 var db = require("../models");
@@ -22,10 +22,10 @@ router.get("/user", function(req, res) {
     res.render("user", obj);
 });
 
-router.get("/item", function(req, res) {
+router.get("/item", function (req, res) {
     db.sequelize.query("SELECT DISTINCT(category) AS category FROM Items ORDER BY category ASC;").spread((results, metadata) => {
-    var obj = { categories: results.map(elem => elem.category)};
-    res.render("test", obj);
+        var obj = { categories: results.map(elem => elem.category) };
+        res.render("test", obj);
     })
 });
 
