@@ -1,5 +1,7 @@
 // api routes for users
 var db = require("../models");
+const saltRounds = 10;
+var bcrypt = require("bcrypt");
 
 module.exports = function (app) {
 // get - /api/users - list all users
@@ -22,11 +24,17 @@ module.exports = function (app) {
     });
 
 // post - /api/users - add a new users
+
     app.post("/api/users", function (req, res) {
-        db.User.create(req.body).then(function (dbUser) {
-            res.json(dbUser);
-        });
+        bcrypt.hash(req.body.password, saltRounds, function(err, hash){
+            db.User.create(req.body).then(function (dbUser) {
+                res.json(dbUser);
+            })
+        })
     });
+       
+
+
 
 // update - /api/users/:id - update your user info
     app.put("/api/users", function (req, res) {
@@ -41,6 +49,7 @@ module.exports = function (app) {
             });
     });
 
+
 // delete - /api/users/:id
     app.delete("/api/items/:id", function (req, res) {
         db.User.destroy({
@@ -52,3 +61,4 @@ module.exports = function (app) {
         });
     });
 };
+

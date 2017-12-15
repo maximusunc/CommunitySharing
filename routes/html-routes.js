@@ -10,6 +10,8 @@
 
 var express = require("express");
 var router = express.Router();
+var bcrypt = require("bcrypt");
+var db = require("../models");
 
 router.get("/", function(req, res) {
     var obj = {};
@@ -25,5 +27,6 @@ router.get("/item", function(req, res) {
     var obj = {};
     res.render("item", obj);
 });
+
 
 module.exports = router;

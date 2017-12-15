@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/grndprxguy/CommunitySharing#readme",
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "express": "^4.16.2",
     "express-handlebars": "^3.0.0",
     "express-mysql-session": "^1.2.3",
