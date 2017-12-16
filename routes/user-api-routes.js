@@ -2,7 +2,7 @@
 var db = require("../models");
 var bcrypt = require("bcrypt");
 const saltRounds = 10;
-module.exports = function (app) {
+module.exports = function (app, passport) {
 // get - /api/users - list all users
     app.get("/api/users/", function (req, res) {
         db.User.findAll({
@@ -35,12 +35,17 @@ module.exports = function (app) {
                 state: req.body.state,
                 zip: req.body.zip,
                 password: hash
-
             }).then(function (dbUser) {
                 res.json(dbUser);
             })
         })
     });
+
+    app.post("/api/users/login", passport.authenticate('local-signin', {
+        successRedirect: '/user',
+        failureRedirect: '/',
+        reqToCallBack: true
+    }));
        
 
 
