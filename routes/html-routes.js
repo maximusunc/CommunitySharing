@@ -20,11 +20,19 @@ router.get("/", function(req, res) {
 router.get("/user", function(req, res) {
     // Im not sure this is the way we should do this. We need to send login info to validation, and then redirect
     // to user.handlebars page with the id of the person logging in.
-    var obj = {
-        name: "Max",
-        item: ["extension ladder", "chainsaw", "Mario Kart", "Lawn mower"]
-    };
-    res.render("user", obj);
+    db.Item.findAll({
+        where: {
+            userId: 1
+            // || req.user.id
+        }
+    }).then(function(result) {
+        var items = { 
+            items: result.map(elem => elem),
+            user: "Max"
+        }; 
+        res.render("user", items);
+    });
+    
 });
 
 router.get("/item", function (req, res) {

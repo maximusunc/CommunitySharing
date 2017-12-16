@@ -78,8 +78,14 @@ $(function() {
         });
     });
 
-    $("#createItem").on("click", function(event) {
-        var newItem; //form submitted
+    $("#newItem").on("click", function(event) {
+        var newItem = {
+            name: $("#itemName").val().trim(),
+            description: $("#itemDesc").val().trim(),
+            category: $("#itemCat").val().trim(),
+            UserId: 1
+            // || req.user.id
+        };
         $.ajax("/api/items", {
             type: "POST",
             data: newItem
@@ -93,13 +99,13 @@ $(function() {
         //maybe we don't allow update yet.
     });
     
-    $("#deleteItem").on("click", function(event) {
+    $(".deleteItem").on("click", function(event) {
         var id = $(this).attr("id");
-        $.ajax("/api/items/:" + id, {
+        $.ajax("/api/items/" + id, {
             type: "DELETE"
         }).then(function() {
             console.log("Successfully deleted");
-            //reload page on backend.
+            location.reload();
         });
     });
 });
