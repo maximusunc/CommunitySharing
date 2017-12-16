@@ -1,8 +1,7 @@
 // api routes for users
 var db = require("../models");
-const saltRounds = 10;
 var bcrypt = require("bcrypt");
-
+const saltRounds = 10;
 module.exports = function (app) {
 // get - /api/users - list all users
     app.get("/api/users/", function (req, res) {
@@ -27,7 +26,17 @@ module.exports = function (app) {
 
     app.post("/api/users", function (req, res) {
         bcrypt.hash(req.body.password, saltRounds, function(err, hash){
-            db.User.create(req.body).then(function (dbUser) {
+            db.User.create({
+                name: req.body.name,
+                email:req.body.email,
+                address1: req.body.address1,
+                address2: req.body.address2,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
+                password: hash
+
+            }).then(function (dbUser) {
                 res.json(dbUser);
             })
         })
