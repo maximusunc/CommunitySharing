@@ -35,6 +35,11 @@ router.get("/user", function(req, res) {
     
 });
 
+router.get("/login", function (req, res) {
+    var obj = {};
+    res.render("index", obj);
+});
+
 router.get("/item", function (req, res) {
     db.sequelize.query("SELECT DISTINCT(category) AS category FROM Items ORDER BY category ASC;").spread((results, metadata) => {
         var obj = { categories: results.map(elem => elem.category) };
