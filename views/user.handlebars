@@ -1,32 +1,44 @@
-<h1>Test 2</h1>
+<h1>{{this.name}}</h1>
+<h4>Your Items</h4>
+<ul>
+    {{#each item}}
+        <li>{{this}}</li>
+    {{/each}}
+</ul>
+<h4>Items Borrowed</h4>
+<ul>
+    {{> itemsBorrowed}}
+</ul>
 
 
 <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add New Item</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Add New Item</button>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
 
-        <!-- Modal content-->
+    <!-- Modal content-->
         <div class="modal-content">
             <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Add Item</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Item</h4>
             </div>
             <div class="modal-body">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Name">
-            </div>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Description">
-            </div>
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="Category">
-            </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Name">
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Description">
+                </div>
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Category">
+                </div>
             </div>
             <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button id="newUser" type="button" class="btn btn-default" data-dismiss="modal">Add Item</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button id="newUser" type="button" class="btn btn-default" data-dismiss="modal">Add Item</button>
             </div>
         </div>
+    </div>
+</div>
