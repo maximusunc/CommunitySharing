@@ -1,21 +1,6 @@
     <!-- login -->
 
     <p>Welcome to Share Stuff</p>
-<form action="/api/users/login" method="post">
-    <div>
-        <label>Username:</label>
-        <input id="email" for="email" type="text" name="email"/>
-    </div>
-    <div>
-        <label>Password:</label>
-        <input id="password" for="password" type="password" name="password"/>
-    </div>
-    <div>
-        <input id="signin" type="submit" value="Sign In"/>
-    </div>
-</form>
-
-
     <!-- create user -->
     <br>
     <br>
@@ -35,25 +20,47 @@
 	    <!-- Modal content-->
 	    <div class="modal-content">
 	      <div class="modal-header">
+					
 	        <button type="button" class="close" data-dismiss="modal">&times;</button>
 	        <h4 class="modal-title">Log In</h4>
 	      </div>
 	      <div class="modal-body">
-	        <div class="input-group">
-	           	<input id="email" type="text" class="form-control" placeholder="Email">
-	        </div>
+					<form action="/api/users/login" method="post">
+						<div>
+							<label>Username:</label>
+							<input id="email" for="email" type="text" name="email" />
+						</div>
+						<div>
+							<label>Password:</label>
+							<input id="password" for="password" type="password" name="password" />
+						</div>
+						<div>
+							{{!-- <input id="signin" type="submit" value="Sign In" /> --}}
+						</div>
+					
+					<div class="modal-footer">
+						<button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<input id="signin" type="submit" class="btn btn-default" value="Log In" />
+					</div>
+					</form>
+							<button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#userModal"> New User?</span>
+							</button>
+					
+					{{!-- <form id='loginForm' action="/api/users/login" method="post">
+	        	<div class="input-group">
+	           	<input name="email" id="email" type="text" class="form-control" placeholder="Email">
+	        	</div>
+	        	<div class='input-group'>
+	    				<input name="password" id="password" type="password" class="form-control" placeholder="Password">
+	        	</div><br>
+					
 	        <div>
-	    		<input id="password" type="password" class="form-control" placeholder="Password">
-	        </div><br>
-	        <div>
-	    		<button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#userModal"> New User?</span>
+	    			<button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#userModal"> New User?</span>
 				</button>
 			</div>
 	      </div>
-	      <div class="modal-footer">
-	        <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button id="newUser" type="button" class="btn btn-default" data-dismiss="modal">Log In</button>
-	      </div>
+	      
+				</form> --}}
 	    </div>
 	  </div>
 	</div>
@@ -68,38 +75,41 @@
 	        <h4 class="modal-title">Create User</h4>
 	      </div>
 	      <div class="modal-body">
+					<form action="/api/users/signup" method="post">
 	        <div class="input-group">
-	            <input id="newName" type="text" class="form-control" placeholder="Full Name">
+	            <input name="name" id="newName" type="text" class="form-control" placeholder="Full Name">
 	        </div>
 
 	        <div class="input-group">
-	            <input id="newEmail" type="text" class="form-control" placeholder="Email">
+	            <input name="email" id="newEmail" type="text" class="form-control" placeholder="Email">
 	        </div>
 
 	        <div class="input-group">
-	            <input id="address1" type="text" class="form-control" placeholder="Address 1">
+	            <input name="address1" id="address1" type="text" class="form-control" placeholder="Address 1">
 	        </div>
 
 	        <div class="input-group">
-	            <input id="address2" type="text" class="form-control" placeholder="Address 2">
+	            <input name="address2" id="address2" type="text" class="form-control" placeholder="Address 2">
 	        </div>
 
 	        <div class="input-group">
-	            <input id="city" type="text" class="form-control" placeholder="City">
-	            <input id="state" type="text" class="form-control" placeholder="State">
+	            <input name="city" id="city" type="text" class="form-control" placeholder="City">
+	            <input name="state" id="state" type="text" class="form-control" placeholder="State">
 	        </div>
 
 	        <div class="input-group">
-	            <input id="zip" type="text" class="form-control" placeholder="Zip">
-	            <input id="newPassword" type="password" class="form-control" placeholder="Password">
+	            <input name="zip" id="zip" type="text" class="form-control" placeholder="Zip">
+	            <input name="password" id="newPassword" type="password" class="form-control" placeholder="Password">
 	        </div>
+					
 
 	      </div>
 
 	      <div class="modal-footer">
 	        <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-	        <button id="newUser" type="button" class="btn btn-default" data-dismiss="modal">Create User</button>
+	        <button type="submit" class="btn btn-default" >Create User</button>
 	      </div>
+				</form>
 	    </div>
 	  </div>
 	</div>
