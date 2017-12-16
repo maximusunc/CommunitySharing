@@ -1,98 +1,133 @@
-/*css file*/
 
 body {
-    background: #ece9e6;
-    /*background: linear-gradient(#ece9e6, #ffffff);*/
-    padding: 5px;
-    height: 100%;
-  }
-  img {
-    width: 100%;
-    height: auto;
-  }
-  h2 {
-    font-family: webfontregular;
-    color: black;
-  }
-  h3 {
-    font-family: webfontregular;
-    color: blue;
-    font-size: 18px;
-    margin: 1%;
-    padding: 1%;
-  }
-  nav {
-    background-color: #ece9e6;
-  }
-  label {
-    padding-left: 0px;
-    margin: 0px;
-    font-size: 18px;
-    color: gray;
-  }
-  .title {
-  position: fixed;
-  background-color: #ece9e6;
-  }
-  .holder {
-  border: solid 1px blue;
-  padding: 0px;
-  margin: 0px;
-  float: left;
-  }
-  .parallax-container {
-    min-height: 420px;
-    line-height: 0;
-    height: auto;
-    color: rgba(255,255,255,.9);
-  }
-  #runSearch {
-    display: inline-block;
-    margin-right: 20px;
-  }
-  #clearAll {
-    display: inline-block;
-  }
-  #searchCity {
-    width: 180px;
-    color: teal;
-    font-size: 20px;
-  }
-  .form-group {
-    width: 33%;
-  }
-  .button-collapse {
-    color: #26a69a;
-  }
-  /* Extra small devices (portrait phones, less than 576px)
-  // No media query since this is the default in Bootstrap
-  // Small devices (landscape phones, 576px and up) */
-  @media (min-width: 576px) { ... }
-  /* Medium devices (tablets, 768px and up) */
-  @media (min-width: 768px) { ... }
-  /* Large devices (desktops, 992px and up */
-  @media (min-width: 992px) { ... }
-  /* Extra large devices (large desktops, 1200px and up) */
-  @media (min-width: 1200px) { ... }
+  background: #ece9e6;
+  /*background: linear-gradient(#ece9e6, #ffffff);*/
+  padding: 5px;
+  height: 100%;
+}
 
-  .input-group {
+img {
+  width: 100%;
+  height: auto;
+}
+
+h2 {
+  font-family: webfontregular;
+  color: black;
+}
+
+h3 {
+  font-family: webfontregular;
+  color: blue;
+  font-size: 18px;
+  margin: 1%;
+  padding: 1%;
+}
+
+nav {
+  background-color: #ece9e6;
+}
+
+label {
+  padding-left: 0px;
+  margin: 0px;
+  font-size: 18px;
+  color: gray;
+}
+
+button {
+  border: 3px blue;
+}
+
+.parallax {
+  /*background-image: url("tools.jpg");*/
+  height: 10px;
+  background-attachment: scroll;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: rgba(255,255,255,.9);
+}
+
+.title {
+position: fixed;
+background-color: #ece9e6;
+}
+
+.modal-header, h2, .close {
+  background-color: #ece9e6;
+  color: grey !important;
+  text-align: center;
+  font-size: 30px;
+}
+.modal-footer {
+  background-color: #f9f9f9;
+}
+
+.holder {
+border: solid 1px blue;
+padding: 0px;
+margin: 0px;
+float: left;
+}
+
+#runSearch {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+#clearAll {
+  display: inline-block;
+}
+
+#searchCity {
+  width: 180px;
+  color: teal;
+  font-size: 20px;
+}
+
+.form-group {
+  width: 100%;
+}
+
+.button-collapse {
+  color: #26a69a;
+}
+
+.input-group {
       width: 100%;
       margin: 15px 0px;
-  }
-  #close {
-      float: left;
-  }
-  #city {
-      width: 47%;
-  }
-  #state {
-      width: 47%;
-      float: right;
-  }
-  #zip {
-      width: 20%;
-  }
-  #newPassword {
-      width: 75%;
-      float: right;
-  }
+}
+
+#close {
+    float: left;
+}
+
+#city {
+    width: 47%;
+}
+
+#state {
+    width: 47%;
+    float: right;
+}
+
+#zip {
+    width: 20%;
+}
+
+#newPassword {
+    width: 75%;
+    float: right;
+}
+
+/* Extra small devices (portrait phones, less than 576px)
+// No media query since this is the default in Bootstrap
+// Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { ... }
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { ... }
+/* Large devices (desktops, 992px and up */
+@media (min-width: 992px) { ... }
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { ... }
