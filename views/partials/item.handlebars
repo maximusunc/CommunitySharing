@@ -1,0 +1,24 @@
+<h4>Your Items</h4>
+<ul>
+    {{#each items}}
+        {{#unless this.borrowed}}
+            <li>{{this.name}} <button class="deleteItem" id={{this.id}}>Delete</button></li>
+        {{/unless}}
+    {{/each}}
+</ul>
+<h4>Items Lent</h4>
+<ul>
+    {{#each items}}
+        {{#if this.borrowed}}
+            <li>{{this.name}}</li>
+        {{/if}}
+    {{/each}}
+</ul>
+
+<h1>Items to Borrow</h1>
+
+<select name="category">
+    {{#each items}}
+      <option>{{this.category}}</option>
+    {{/each}}
+</select>
