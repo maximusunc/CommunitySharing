@@ -12,104 +12,101 @@
     <br>
     
 
-    <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>
+<div class="parallax-container">
+	<div class="parallax"><img class="responsive-img" src="../assets/images/tools.jpg" alt="StuffShare"></div>
+	
+	<!--Log In Modal-->
+	<button id="logIn" type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#loginModal">
+		<span class="glyphicon glyphicon-log-in"></span>
+	</button>
+	<!-- Modal -->
+	<div id="loginModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Log In</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="input-group">
+	           	<input id="email" type="text" class="form-control" placeholder="Email">
+	        </div>
+	        <div>
+	    		<input id="password" type="password" class="form-control" placeholder="Password">
+	        </div><br>
+	        <div>
+	    		<button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#userModal"> New User?</span>
+				</button>
+			</div>
+	      </div>
+	      <div class="modal-footer">
+	        <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button id="newUser" type="button" class="btn btn-default" data-dismiss="modal">Log In</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
-<!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
-  <div class="modal-dialog">
+	<!-- Create User Modal -->
+	<div id="userModal" class="modal fade" role="dialog">
+	  <div class="modal-dialog">
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        <h4 class="modal-title">Create User</h4>
+	      </div>
+	      <div class="modal-body">
+	        <div class="input-group">
+	            <input id="newName" type="text" class="form-control" placeholder="Full Name">
+	        </div>
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Create User</h4>
-      </div>
-      <div class="modal-body">
-        <div class="input-group">
-            <input id="newName" type="text" class="form-control" placeholder="Full Name">
-        </div>
+	        <div class="input-group">
+	            <input id="newEmail" type="text" class="form-control" placeholder="Email">
+	        </div>
 
-        <div class="input-group">
-            <input id="newEmail" type="text" class="form-control" placeholder="Email">
-        </div>
+	        <div class="input-group">
+	            <input id="address1" type="text" class="form-control" placeholder="Address 1">
+	        </div>
 
-        <div class="input-group">
-            <input id="address1" type="text" class="form-control" placeholder="Address 1">
-        </div>
+	        <div class="input-group">
+	            <input id="address2" type="text" class="form-control" placeholder="Address 2">
+	        </div>
 
-        <div class="input-group">
-            <input id="address2" type="text" class="form-control" placeholder="Address 2">
-        </div>
+	        <div class="input-group">
+	            <input id="city" type="text" class="form-control" placeholder="City">
+	            <input id="state" type="text" class="form-control" placeholder="State">
+	        </div>
 
-        <div class="input-group">
-            <input id="city" type="text" class="form-control" placeholder="City">
-            <input id="state" type="text" class="form-control" placeholder="State">
-        </div>
+	        <div class="input-group">
+	            <input id="zip" type="text" class="form-control" placeholder="Zip">
+	            <input id="newPassword" type="password" class="form-control" placeholder="Password">
+	        </div>
 
-        <div class="input-group">
-            <input id="zip" type="text" class="form-control" placeholder="Zip">
-            <input id="newPassword" type="password" class="form-control" placeholder="Password">
-        </div>
+	      </div>
 
-      </div>
-      <div class="modal-footer">
-        <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button id="newUser" type="button" class="btn btn-default" data-dismiss="modal">Create User</button>
-      </div>
-    </div>
+	      <div class="modal-footer">
+	        <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        <button id="newUser" type="button" class="btn btn-default" data-dismiss="modal">Create User</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
-  </div>
+	<div>
+		<button id="menu" type="button" class="btn btn-default btn-md" >
+			<span class="glyphicon glyphicon-search"></span>
+		</button>
+	</div>
+	<div>
+		<button id="menu" type="button" class="btn btn-default btn-md" >
+			<span class="glyphicon glyphicon-tasks"></span>
+		</button>
+	</div>
+	<div>
+		<button id="menu" type="button" class="btn btn-default btn-md" >
+			<span class="glyphicon glyphicon-user"></span>
+		</button>
+	</div>
 </div>
-
-    <!-- <div class="container">
-    <div class="row">
-        <div id="title"><h2>StuffShare<h2></div>
-    </div>
-    <div class="row">
-        <div class="col s12 m8">
-            <form class="form-inline" action="/action_page.php">
-                <div class="form-group">
-                    <label for="email">Email address:</label>
-                    <input type="email" class="form-control" id="email">
-                </div>
-                <div class="form-group">
-                    <label for="pwd">Password:</label>
-                    <input type="password" class="form-control" id="pwd">
-                </div>
-                <div class="checkbox">
-                    <label><input type="checkbox"> Remember me</label>
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col s12 m6 l4">
-            <form role="form">
-                <div class="form-group">
-                    <label for="searchCity">City:</label>&nbsp;
-                    <input type="text" class="form-control" id="searchCity">
-                </div>
-            </form>
-            <button type="submit" class="btn btn-default" id="runSearch"><i class="fa fa-search"></i>Search</button>
-            <button type="submit" class="btn btn-default" id="clearAll"><i class="fa fa-search"></i>Clear</button><br><br> 
-            <div class="panel panel-primary">
-                <div class="panel-body">
-                    <table class="highlight bordered centered responsive-table" id="itemResults">
-                        <thead>
-                            <tr>
-                                <th>Item Name</th>
-                                <th>Description</th>
-                                <th>Category</th>
-                                <th>UserId</th>
-                            </tr>
-                        </thead>
-                        <tbody id="tbodyid">
-                        </tbody>
-                     </table>
-                </div><br> 
-            </div>
-        </div>
-    </div>
-</div> -->
