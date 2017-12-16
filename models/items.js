@@ -18,7 +18,7 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		borrowed: {
 			type: DataTypes.BOOLEAN,
-			defaultValue: true
+			defaultValue: false
 		}
 	});
 
