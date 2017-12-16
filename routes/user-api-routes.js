@@ -1,7 +1,8 @@
 // api routes for users
 var db = require("../models");
-
-module.exports = function (app) {
+var bcrypt = require("bcrypt");
+const saltRounds = 10;
+module.exports = function (app, passport) {
 // get - /api/users - list all users
     app.get("/api/users/", function (req, res) {
         db.User.findAll({
@@ -22,11 +23,32 @@ module.exports = function (app) {
     });
 
 // post - /api/users - add a new users
+
     app.post("/api/users", function (req, res) {
-        db.User.create(req.body).then(function (dbUser) {
-            res.json(dbUser);
-        });
+        bcrypt.hash(req.body.password, saltRounds, function(err, hash){
+            db.User.create({
+                name: req.body.name,
+                email:req.body.email,
+                address1: req.body.address1,
+                address2: req.body.address2,
+                city: req.body.city,
+                state: req.body.state,
+                zip: req.body.zip,
+                password: hash
+            }).then(function (dbUser) {
+                res.json(dbUser);
+            })
+        })
     });
+
+    app.post("/api/users/login", passport.authenticate('local-signin', {
+        successRedirect: '/user',
+        failureRedirect: '/',
+        reqToCallBack: true
+    }));
+       
+
+
 
 // update - /api/users/:id - update your user info
     app.put("/api/users", function (req, res) {
@@ -41,6 +63,7 @@ module.exports = function (app) {
             });
     });
 
+
 // delete - /api/users/:id
     app.delete("/api/items/:id", function (req, res) {
         db.User.destroy({
@@ -52,3 +75,4 @@ module.exports = function (app) {
         });
     });
 };
+
