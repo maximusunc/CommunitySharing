@@ -24,22 +24,14 @@ module.exports = function (app, passport) {
 
 // post - /api/users - add a new users
 
-    app.post("/api/users", function (req, res) {
-        bcrypt.hash(req.body.password, saltRounds, function(err, hash){
-            db.User.create({
-                name: req.body.name,
-                email:req.body.email,
-                address1: req.body.address1,
-                address2: req.body.address2,
-                city: req.body.city,
-                state: req.body.state,
-                zip: req.body.zip,
-                password: hash
-            }).then(function (dbUser) {
-                res.json(dbUser);
-            })
-        })
-    });
+    app.post("/api/users/signup", passport.authenticate('local-signup', {
+        successRedirect: '/',
+        failureRedirect: '/',
+        reqToCallBack: true
+    },
+console.log("user added"))
+
+);
 
     app.post("/api/users/login", passport.authenticate('local-signin', {
         successRedirect: '/user',

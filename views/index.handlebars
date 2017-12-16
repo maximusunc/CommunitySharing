@@ -3,12 +3,15 @@
 	<div class="navbar-fixed">
 		<nav><div class="nav-wrapper"><h1>Welcome To StuffShare!<h1>
 		<p>The community that's built on sharing stuff...<p>
+       <form action="/api/users/login" method="post">
 		<input id="email" type="text" placeholder="Email">
 		<input id="password" type="password" placeholder="Password">
-		<button id="login" type="button" class="btn-default btn-md">Log In</button>
+		<input id="signin" type="submit" class="btn btn-default" value="Log In" />
 		<button id="newUser" type="button" class="btn-success btn-md" data-toggle="modal" data-target="#userModal">New User</button>
+        </form>
 		</div></nav>
     
+
 	</div>
 
 	<div class="parallax-container">
@@ -25,6 +28,7 @@
 		      	</div>
 
 				<div class="modal-body">
+                <form action="/api/users/signup" method="post">
 			        <div class="input-group">
 			            <input id="newName" type="text" class="form-control" placeholder="Full Name">
 			        </div>
@@ -60,7 +64,7 @@
 
 				<div class="modal-footer">
 				    <button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-				    <button id="newUser" type="button" class="btn btn-default" data-dismiss="modal">Create User</button>
+				    <button id="newUser" type="submit" class="btn btn-default">Create User</button>
 				</div>
 			</div>
 		</div>

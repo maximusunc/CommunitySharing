@@ -38,7 +38,7 @@ module.exports = function (passport, user) {
 
     function (req, email, password, done) {
 
-
+      console.log("passport problem", req.body)
       var generateHash = function (password) {
         return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
       };
@@ -55,12 +55,16 @@ module.exports = function (passport, user) {
             {
               email: email,
               password: userPassword,
-              firstname: req.body.firstname,
-              lastname: req.body.lastname
+              name: req.body.name,
+              address1: req.body.address1,
+              address2: req.body.address2,
+              city: req.body.city,
+              state: req.body.state,
+              zip: req.body.zip
             };
 
 
-          User.create(data).then(function (newUser, created) {
+          db.User.create(data).then(function (newUser, created) {
             if (!newUser) {
               return done(null, false);
             }
@@ -88,6 +92,8 @@ module.exports = function (passport, user) {
   //LOCAL SIGNIN
   passport.use('local-signin', new LocalStrategy(
 
+    
+
     {
 
       // by default, local strategy uses username and password, we will override with email
@@ -97,7 +103,7 @@ module.exports = function (passport, user) {
     },
 
     function (req, email, password, done) {
-
+      console.log('hey its me, local-signin', req.body)
       var User = user;
 
       var isValidPassword = function (userpass, password) {
