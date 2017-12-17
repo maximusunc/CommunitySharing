@@ -56,8 +56,8 @@ app.use(passport.session());
 
 // Routes
 // =============================================================
-require("./routes/items-api-routes.js")(app);
-require("./routes/share-api-routes.js")(app);
+require("./routes/items-api-routes.js")(app, passport);
+require("./routes/share-api-routes.js")(app, passport);
 require("./routes/user-api-routes.js")(app, passport);
 require("./config/passport.js")(passport, db.User);
 var routes = require("./routes/html-routes.js");
