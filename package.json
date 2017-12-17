@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node testing/nightmare.js",
     "start": "node server.js"
   },
   "repository": {
@@ -34,5 +34,9 @@
     "path": "^0.12.7",
     "sequelize": "^4.28.1"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nightmare": "^2.10.0"
+  }
 }

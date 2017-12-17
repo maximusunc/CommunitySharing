@@ -5,7 +5,7 @@ var nightmare = Nightmare({ show: true });
 describe("Routes", function() {
     it("should go to the login page", function(done) {
         nightmare
-        .goto("localhost:8080/maxisawesome")
+        .goto("localhost:8080/")
         .evaluate(function() {
             return document.title;
         })

@@ -53,7 +53,13 @@ module.exports = function(app) {
 
 // post - /api/items - add a new item
     app.post("/api/items", function(req, res) {
-        db.Item.create(req.body).then(function(dbItem) {
+        console.log(req.user.id);
+        db.Item.create({
+            name: req.body.name,
+            description: req.body.description,
+            category: req.body.category,
+            UserId: req.user.id
+        }).then(function(dbItem) {
             res.json(dbItem);
         });
     });
