@@ -17,9 +17,9 @@
 
 <h1>Items to Borrow</h1>
 
-<select name="category">
+<select id="borrow" name="category">
     {{#each [1].categories}}
-        <option>{{this}}</option>
+        <option value={{this}}>{{this}}</option>
     {{/each}}
 </select>
 <button type="submit" id="borrowItem">Submit</button>
