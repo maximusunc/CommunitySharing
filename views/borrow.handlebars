@@ -4,5 +4,7 @@
     </div>
 
     {{#each items}}
-     <h1>{{this}}</h1>
+    <li>{{this.name}}
+        <button class="borrowItem" id={{this.id}}>Borrow</button>
+    </li>
     {{/each}}
