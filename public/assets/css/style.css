@@ -1,20 +1,22 @@
-
 body {
-  background-color: #ece9e6;
+  color: white;
 }
 
 img {
   width: 100%;
+  min-width: 500px;
   height: auto;
 }
 
 h1 {
   font-family: webfontregular;
-  font-size: 32px;
+  font-size: 28px;
+  color: orange;
 }
 
 h2 {
   font-family: webfontregular;
+  color: orange;
 }
 
 h3 {
@@ -26,32 +28,23 @@ h3 {
 
 p {
   font-size: 14px;
+  color: orange;
 }
 
-.parallax {
-  height: 5px;
-  background-attachment: scroll;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.parallax-container {
-  background-color: #ece9e6;
-}
-
-.container-fluid {
-  background-color: #ece9e6;
+footer {
+  font-size: 24px;
+  color: #ece9e6;
 }
 
 .jumbotron {
-  font-family: webfontregular;
+  color: orange;
+  font-size: 18px;
+  opacity: .9;
+  min-width: 350px;
 }
 
-.title {
-background-color: #ece9e6;
-width: 100%;
-float: left;
+.page-header {
+  color: orange;
 }
 
 .modal-header, h2, .close {
@@ -60,15 +53,9 @@ float: left;
   text-align: center;
   font-size: 30px;
 }
+
 .modal-footer {
   background-color: #f9f9f9;
-}
-
-.holder {
-border: solid 1px blue;
-padding: 0px;
-margin: 0px;
-float: left;
 }
 
 .form-group {
@@ -80,8 +67,8 @@ float: left;
 }
 
 .input-group {
-      width: 100%;
-      margin: 15px 0px;
+  width: 100%;
+  margin: 15px 0px;
 }
 
 /* Extra small devices (portrait phones, less than 576px)

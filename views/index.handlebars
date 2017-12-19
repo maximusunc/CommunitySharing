@@ -1,87 +1,71 @@
-<div class="container-fluid">
-	<div class="navbar-fixed">
-		<nav>
-			<div class="nav-wrapper">
-				<h1>Welcome To StuffShare!</h1>
-					<h1><p>The community that's built on sharing stuff...</h1>
-						<p>
-							<form action="/api/users/login" method="post">
-								<input id="email" for="email" type="text" name="email" placeholder="email" />
-								<input id="password" for="password" type="password" name="password" placeholder="password" />
-								<input id="login" type="submit" class="btn-default btn-md" value="Log In"/>
-							</form>
-							<button type="button" class="btn-success btn-md" data-toggle="modal" data-target="#userModal">New User</button>
-						</p>
-					</p>	
-			</div>
-		</nav>
+<div class="container-fluid" style="position: relative;">
+	<div class="main" style="position: absolute; z-index: 1; left: 0; top: 0;">
+		<img class="responsive-img" src="../assets/images/tools.jpg" alt="StuffShare">
 	</div>
-
-	<div class="parallax-container">
-		<div class="parallax">
-			<img class="responsive-img" src="../assets/images/tools.jpg" alt="StuffShare">
+	<div class="page-header" style="position: relative; z-index: 2;">
+		<div class="jumbotron">
+			<h1>Welcome To StuffShare!</h1>
+			<p>The community that's built on sharing stuff...</p>
+			<form action="/api/users/login" method="post">
+				<input id="email" for="email" type="text" name="email" placeholder="email" />
+				<input id="password" for="password" type="password" name="password" placeholder="password" />
+				<input id="login" type="submit" class="btn-default btn-md" value="Log In" />
+				<button type="button" class="btn-success btn-md" data-toggle="modal" data-target="#userModal">New User</button>
+			</form>
 		</div>
-
-		<!-- Create User Modal -->
-		<div id="userModal" class="modal fade" role="dialog">
-			<div class="modal-dialog">
-				<!-- Modal content-->
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-						<h4 class="modal-title">Create User</h4>
-					</div>
-					<div class="modal-body">
-						<form action="/api/users/signup" method="post">
-							<div class="input-group">
-								<input name="name" id="newName" type="text" class="form-control" placeholder="Full Name">
-							</div>
-		
-							<div class="input-group">
-								<input name="email" id="newEmail" type="text" class="form-control" placeholder="Email">
-							</div>
-		
-							<div class="input-group">
-								<input name="address1" id="address1" type="text" class="form-control" placeholder="Address 1">
-							</div>
-		
-							<div class="input-group">
-								<input name="address2" id="address2" type="text" class="form-control" placeholder="Address 2">
-							</div>
-		
-							<div class="input-group">
-								<input name="city" id="city" type="text" class="form-control" placeholder="City">
-								<input name="state" id="state" type="text" class="form-control" placeholder="State">
-							</div>
-		
-							<div class="input-group">
-								<input name="zip" id="zip" type="text" class="form-control" placeholder="Zip">
-								<input name="password" id="newPassword" type="password" class="form-control" placeholder="Password">
-							</div>
-					</div>
-		
-					<div class="modal-footer">
-						<button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="submit" class="btn btn-default">Create User</button>
-					</div>
-					</form>
+	</div>
+	<footer>
+		<p>Created By Max, Matt, Dan & Jason</p>
+	</footer>
+	<!-- Create User Modal -->
+	<div id="userModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Create User</h4>
 				</div>
+				<div class="modal-body">
+					<form action="/api/users/signup" method="post">
+						<div class="input-group">
+							<input name="name" id="newName" type="text" class="form-control" placeholder="Full Name">
+						</div>
+
+						<div class="input-group">
+							<input name="email" id="newEmail" type="text" class="form-control" placeholder="Email">
+						</div>
+
+						<div class="input-group">
+							<input name="address1" id="address1" type="text" class="form-control" placeholder="Address 1">
+						</div>
+
+						<div class="input-group">
+							<input name="address2" id="address2" type="text" class="form-control" placeholder="Address 2">
+						</div>
+
+						<div class="input-group">
+							<input name="city" id="city" type="text" class="form-control" placeholder="City">
+						</div>
+
+						<div class="input-group">
+							<input name="state" id="state" type="text" class="form-control" placeholder="State">
+						</div>
+
+						<div class="input-group">
+							<input name="zip" id="zip" type="text" class="form-control" placeholder="Zip">
+						</div>
+
+						<div class="input-group">
+							<input name="password" id="newPassword" type="password" class="form-control" placeholder="Password">
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button id="close" type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="submit" class="btn btn-default">Create User</button>
+				</div>
+				</form>
 			</div>
 		</div>
-
-		<div>
-			<button id="menu" type="button" class="btn btn-default btn-md">
-				<span class="glyphicon glyphicon-search"></span>
-			</button>
-		</div>
-		<div>
-			<button id="menu" type="button" class="btn btn-default btn-md">
-				<span class="glyphicon glyphicon-tasks"></span>
-			</button>
-		</div>
-		<div>
-			<button id="menu" type="button" class="btn btn-default btn-md">
-				<span class="glyphicon glyphicon-user"></span>
-			</button>
-		</div>
 	</div>
+</div>
