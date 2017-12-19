@@ -105,7 +105,26 @@
             location.reload();
         });
     });
+
+
+    $(".borrow").on("click", function (event) {
+        console.log("USER ID: ", User.Id)
+        console.log("Item ID: ", id)
+        var id = $(this).attr("id");
+        $.ajax("/api/items/" + id, {
+            type: "PUT"
+            data: {
+                borrowed: true
+            }
+        }).then(function () {
+            console.log("Successfully borrowed");
+            location.reload();
+        });
+    });
+});
+
     
+
 
 
 

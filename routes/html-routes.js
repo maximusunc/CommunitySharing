@@ -32,9 +32,17 @@ router.get("/user", function(req, res) {
     }); 
 });
 
-router.get("/login", function (req, res) {
-    var obj = {};
-    res.render("index", obj);
+router.get("/borrow", function (req, res) {
+    console.log("USER ID: ", req.user.id)
+    db.Item.findAll({
+        where: { UserId: {notIn: req.user.id}}
+    }).then(function(result){
+        var items = {
+            items: result.map(elem => elem)
+        };
+        res.render("borrow", items);
+    })
+   
 });
 
 module.exports = router;
