@@ -1,5 +1,5 @@
 // front end js file
-$(function() {
+// $(function() {
     // var login = function() {
     //     $.ajax("/api/users/:email", {
     //         type: "GET"
@@ -106,6 +106,7 @@ $(function() {
         });
     });
 
+
     $(".borrow").on("click", function (event) {
         console.log("USER ID: ", User.Id)
         console.log("Item ID: ", id)
@@ -121,6 +122,9 @@ $(function() {
         });
     });
 });
+
+    
+
 
 
 
