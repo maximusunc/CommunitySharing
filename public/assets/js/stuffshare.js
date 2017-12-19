@@ -1,5 +1,5 @@
 // front end js file
-$(function() {
+// $(function() {
     // var login = function() {
     //     $.ajax("/api/users/:email", {
     //         type: "GET"
@@ -105,7 +105,7 @@ $(function() {
             location.reload();
         });
     });
-});
+    
 
 
 
