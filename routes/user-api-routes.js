@@ -38,6 +38,12 @@ console.log("user added"))
         failureRedirect: '/',
         reqToCallBack: true
     }));
+
+    app.get('/logout', function(req, res) {
+        req.logout();
+        req.session.destroy();
+        res.redirect('/');
+    });
        
 
 
