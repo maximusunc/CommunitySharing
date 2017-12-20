@@ -12,7 +12,7 @@
     {{> item}}
 
 
-	<!-- Modal -->
+	<!-- Add Item Modal -->
 	<div id="itemModal" class="modal fade" role="dialog">
 	    <div class="modal-dialog">
             <!-- Modal content-->
@@ -43,5 +43,25 @@
             </div>
 	    </div>
 	</div>
+ 
+{{!-- -- Logout Modal -- --}}
+
+<div id="logoutModal"  class="modal fade" tabindex="-1" role="dialog">
+ <div class="modal-dialog" role="document">
+	 <!-- Modal Content -->
+   <div class="modal-content">
+     <div class="modal-header">
+		<h2 class="modal-title">Logout</h2>
+     </div>
+     <div class="modal-body">
+       <p>This will log you out of StuffShare. Continue?</p>
+     </div>
+     <div class="modal-footer">
+      <a href="/logout"> <button id="logoutButton" type="button" class="btn btn-primary" href="/logout">Logout</button> </a>     
+       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+     </div>
+   </div>
+ </div>
+</div>
 
 </div>
