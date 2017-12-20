@@ -50,6 +50,10 @@ $(function() {
             location.reload();
         });
     });
+
+    $("#goBack").on("click", function(event) {
+        window.location.replace("/user");
+    });
 });
 
     

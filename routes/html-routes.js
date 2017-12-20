@@ -15,7 +15,7 @@ router.get("/", function(req, res) {
 router.get("/user", function(req, res) {
     db.Item.findAll({
         where: {
-            userId: req.user.id
+            UserId: req.user.id
         }
     }).then(function(result) {
         var items = { 

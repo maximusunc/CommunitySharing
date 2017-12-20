@@ -85,8 +85,8 @@ module.exports = function(app) {
         }).then(function(dbBorrow) {
             db.Share.create({
                 ItemId: req.params.id,
-                borrowerId: req.user.id,
-                UserId: req.body.UserId
+                UserId: req.user.id,
+                OwnerId: req.body.UserId
             }).then(function(data) {
                 res.json(data);
             });
