@@ -25,7 +25,7 @@ module.exports = function (app, passport) {
     // post - /api/users - add a new users
 
     app.post("/api/users/signup", passport.authenticate('local-signup', {
-        successRedirect: '/',
+        successRedirect: '/user',
         failureRedirect: '/',
         reqToCallBack: true
     },
