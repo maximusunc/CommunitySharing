@@ -87,4 +87,16 @@ module.exports = function(app) {
             res.json(dbItem);
         });
     });
+
+    // update - /api/items/:id - update item to borrowed
+    app.put("/api/items/:id", function(req, res) {
+        db.Item.update({
+            where: {
+                id: req.params.id
+            },
+            borrowed: true
+        }).then(function(dbBorrow) {
+            res.json(dbBorrow);
+        });
+    })
 };
