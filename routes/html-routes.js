@@ -33,7 +33,6 @@ router.get("/user", function(req, res) {
 });
 
 router.get("/borrow/:category", function (req, res) {
-    console.log(req.params.category);
     db.Item.findAll({
         where: { 
             UserId: {notIn: req.user.id},
@@ -44,8 +43,7 @@ router.get("/borrow/:category", function (req, res) {
         var items = {
             items: result.map(elem => elem)
         };
-        console.log(items.items);
-        res.json("borrow", items);
+        res.render("borrow", items);
     });
    
 });

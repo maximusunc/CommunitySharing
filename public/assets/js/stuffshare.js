@@ -32,15 +32,18 @@ $(function() {
             type: "GET"
         }).then(function() {
             console.log("Success");
+            window.location.replace("/borrow/" + category);
         });
     });
 
     $(".borrow").on("click", function (event) {
         var id = $(this).attr("id");
+        var userId = $(this).data("id");
         $.ajax("/api/items/" + id, {
             type: "PUT",
             data: {
-                borrowed: true
+                borrowed: true,
+                UserId: userId
             }
         }).then(function () {
             console.log("Successfully borrowed");

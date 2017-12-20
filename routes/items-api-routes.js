@@ -37,20 +37,6 @@ module.exports = function(app) {
         });
     });
 
-// get - api/items/:category - show list of items in category
-    app.get("/api/items/category/:category", function (req, res) {
-        db.Item.findAll({
-            where: {
-                category: req.params.category
-            },
-            include: [{
-                model: db.User
-            }]
-        }).then(function (dbItem) {
-            res.json(dbItem);
-        });
-    });
-
 // post - /api/items - add a new item
     app.post("/api/items", function(req, res) {
         console.log(req.user.id);
@@ -90,12 +76,20 @@ module.exports = function(app) {
 
     // update - /api/items/:id - update item to borrowed
     app.put("/api/items/:id", function(req, res) {
-        db.Item.update({
+        db.Item.update(
+            req.body,
+            {
             where: {
                 id: req.params.id
-            },
-            borrowed: true
+            }
         }).then(function(dbBorrow) {
+            db.Share.create({
+                ItemId: req.params.id,
+                borrowerId: req.user.id,
+                UserId: req.body.UserId
+            }).then(function(data) {
+                res.json(data);
+            });
             res.json(dbBorrow);
         });
     })
