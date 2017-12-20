@@ -37,12 +37,14 @@ var options = {
 	host: "localhost",
 	user: "stuffshare",
 	password: "",
-	database: "stuffshare_db"
+	database: "stuffshare_db",
 };
 
 var sessionStore = new MySQLStore(options);
 
 app.use(session({
+	//session time out
+	// cookie: {maxAge: 10000},
 	key: 'share_session',
 	secret: 'chainsaw',
 	store: sessionStore,
