@@ -26,24 +26,45 @@ $(function() {
         });
     });
 
+    $(".returnItem").on("click", function(event) {
+        var id = $(this).attr("id");
+        var itemId = $(this).data("id");
+        $.ajax("/api/items/return/" + id, {
+            type: "PUT",
+            data: {
+                borrowed: false,  
+                ItemId: itemId
+            }
+        }).then(function() {
+            console.log("Successfully returned");
+            location.reload();
+        }); 
+    });
+
     $("#borrowItem").on("click", function(event) {
         var category = $("#borrow").find("option:selected").attr("id");
-        $.ajax("/borrow/" + category, {
-            type: "GET"
-        }).then(function() {
-            console.log("Success");
-            window.location.replace("/borrow/" + category);
-        });
+        if (category !== undefined) {
+            $.ajax("/borrow/" + category, {
+                type: "GET"
+            }).then(function() {
+                console.log("Success");
+                window.location.replace("/borrow/" + category);
+            });
+        } else {
+            alert("Currently there aren't any items to borrow. Please check back later");
+        };
     });
 
     $(".borrow").on("click", function (event) {
         var id = $(this).attr("id");
         var userId = $(this).data("id");
+        var name = $(this).data("name");
         $.ajax("/api/items/" + id, {
             type: "PUT",
             data: {
                 borrowed: true,
-                UserId: userId
+                UserId: userId,
+                name: name
             }
         }).then(function () {
             console.log("Successfully borrowed");

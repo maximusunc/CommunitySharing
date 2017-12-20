@@ -27,7 +27,16 @@ router.get("/user", function(req, res) {
                 categories: results.map(elem => elem.category),
                 user: req.user.id
             };
-            res.render("user", [items, borrow]);
+            db.Share.findAll({
+                where: {
+                    UserId: req.user.id
+                }
+            }).then(function(result) {
+                var borrowed = {
+                    items: result.map(elem => elem)
+                };
+                res.render("user", [items, borrow, borrowed]);
+            });
         });
     }); 
 });

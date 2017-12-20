@@ -84,6 +84,7 @@ module.exports = function(app) {
             }
         }).then(function(dbBorrow) {
             db.Share.create({
+                name: req.body.name,
                 ItemId: req.params.id,
                 UserId: req.user.id,
                 OwnerId: req.body.UserId
@@ -92,5 +93,24 @@ module.exports = function(app) {
             });
             res.json(dbBorrow);
         });
-    })
+    });
+
+    app.put("/api/items/return/:id", function(req, res) {
+        db.Item.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.ItemId
+                }
+            }
+        ).then(function(dbReturn) {
+            db.Share.destroy({
+                where: {
+                    id: req.params.id
+                }
+            }).then(function(data) {
+                res.json(data);
+            });
+        });
+    });
 };
