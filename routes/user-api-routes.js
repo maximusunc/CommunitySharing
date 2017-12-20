@@ -38,7 +38,8 @@ module.exports = function (app, passport) {
         failureRedirect: '/',
         reqToCallBack: true
     }));
-
+    
+    // Logout the user and delete session cookie
     app.get('/logout', function (req, res) {
         req.logout();
         req.session.destroy();
