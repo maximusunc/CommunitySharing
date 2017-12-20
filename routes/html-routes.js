@@ -32,16 +32,19 @@ router.get("/user", function(req, res) {
     }); 
 });
 
-router.get("/borrow", function (req, res) {
-    console.log("USER ID: ", req.user.id)
+router.get("/borrow/:category", function (req, res) {
     db.Item.findAll({
-        where: { UserId: {notIn: req.user.id}}
+        where: { 
+            UserId: {notIn: req.user.id},
+            category: req.params.category,
+            borrowed: false
+        }
     }).then(function(result){
         var items = {
             items: result.map(elem => elem)
         };
         res.render("borrow", items);
-    })
+    });
    
 });
 

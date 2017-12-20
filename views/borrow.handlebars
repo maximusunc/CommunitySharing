@@ -1,9 +1,8 @@
-<div class="parallax-container">
-    <div class="parallax">
-    </div>
+<h1>Items Available to Borrow in {{items.[0].dataValues.category}}</h1>
 
-    {{#each items}}
+
+{{#each items}}
     <li>{{this.name}}
-        <button class="borrow" id={{this.id}}>Borrow</button>
+        <button class="borrow" id={{this.id}} data-id={{this.UserId}}>Borrow</button>
     </li>
-    {{/each}}
+{{/each}}
