@@ -1,9 +1,10 @@
 body {
   color: white;
-  background-image: url("../images/tools.jpg");
-  background-repeat: no-repeat;
+    background: url(../images/tools.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-position: center;
 }
 
 img {
