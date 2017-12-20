@@ -1,5 +1,9 @@
 body {
   color: white;
+  background-image: url("../images/tools.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 img {
@@ -39,7 +43,7 @@ footer {
 .jumbotron {
   color: orange;
   font-size: 18px;
-  opacity: .9;
+  opacity: .85;
   min-width: 350px;
 }
 
