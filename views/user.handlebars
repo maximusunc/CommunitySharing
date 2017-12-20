@@ -1,41 +1,27 @@
 <div class="parallax-container">
-	<div class="parallax"><img class="responsive-img" src="../assets/images/tools.jpg" alt="StuffShare"></div>
+    <div class="parallax">
+    </div>
 
-	<div>
-		<!-- Logout Button -->
-		<button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#logoutModal">Logout
-			<span class="glyphicon glyphicon-home"></span>
-		</button>
-	</div>
-	<div>
-		<button id="search" type="button" class="btn btn-default btn-md" >
-			<span class="glyphicon glyphicon-search"></span>
-		</button>
-	</div>
-	<div>
-		<button id="myStuff" type="button" class="btn btn-default btn-md" >
-			<span class="glyphicon glyphicon-tasks"></span>
-		</button>
-	</div>
-	<div>
-		<button id="userProfile" type="button" class="btn btn-default btn-md" >
-			<span class="glyphicon glyphicon-user"></span>
-		</button>
-	</div>
-	<div>
-		<button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#itemModal">
-			<span class="glyphicon glyphicon-plus"></span>
-		</button>
-	</div>
+    <div>
+        <!-- Logout Button -->
+        <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#logoutModal">Logout
+            <span class="glyphicon glyphicon-home"></span>
+        </button>
+    </div>
+    <div>
+        <button type="button" class="btn btn-default btn-md" data-toggle="modal" data-target="#itemModal">
+            <span class="glyphicon glyphicon-plus"></span>
+        </button>
+    </div>
 
     {{!-- Handlebars Content --}}
     <h1>{{[0].user}}</h1>
     {{> item}}
 
 
-	<!-- Add Item Modal -->
-	<div id="itemModal" class="modal fade" role="dialog">
-	    <div class="modal-dialog">
+    <!-- Add Item Modal -->
+    <div id="itemModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header">
@@ -62,27 +48,29 @@
                     <button id="newItem" type="button" class="btn btn-default" data-dismiss="modal">Add Item</button>
                 </div>
             </div>
-	    </div>
-	</div>
- 
-{{!-- -- Logout Modal -- --}}
+        </div>
+    </div>
 
-<div id="logoutModal"  class="modal fade" tabindex="-1" role="dialog">
- <div class="modal-dialog" role="document">
-	 <!-- Modal Content -->
-   <div class="modal-content">
-     <div class="modal-header">
-		<h2 class="modal-title">Logout</h2>
-     </div>
-     <div class="modal-body">
-       <p>This will log you out of StuffShare. Continue?</p>
-     </div>
-     <div class="modal-footer">
-       <button id="logoutButton" type="button" class="btn btn-primary" href="/logout">Logout</button>
-       <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-     </div>
-   </div>
- </div>
-</div>
+    {{!-- -- Logout Modal -- --}}
+
+    <div id="logoutModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <!-- Modal Content -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Logout</h2>
+                </div>
+                <div class="modal-body">
+                    <p>This will log you out of StuffShare. Continue?</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="/logout">
+                        <button id="logoutButton" type="button" class="btn btn-primary" href="/logout">Logout</button>
+                    </a>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </div>

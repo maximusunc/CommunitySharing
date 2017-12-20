@@ -1,5 +1,10 @@
 body {
   color: white;
+    background: url(../images/tools.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 img {
@@ -39,7 +44,7 @@ footer {
 .jumbotron {
   color: orange;
   font-size: 18px;
-  opacity: .9;
+  opacity: .85;
   min-width: 350px;
 }
 
