@@ -3,7 +3,7 @@
 
 {{#each items}}
     <li>{{this.name}}
-        <button class="borrow" id={{this.id}} data-id={{this.UserId}}>Borrow</button>
+        <button class="borrow" id={{this.id}} data-id={{this.UserId}} data-name={{this.name}} data-user={{../name}}>Borrow</button>
     </li>
 {{/each}}
 

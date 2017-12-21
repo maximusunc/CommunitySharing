@@ -2,7 +2,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-//  get - /api/items - show all items
+    //  get - /api/items - show all items
     app.get("/api/items", function (req, res) {
         console.log("api/items");
         db.Item.findAll({
@@ -23,7 +23,7 @@ module.exports = function(app) {
         });
     });
 
-//  get - /api/items/user/:userId - show list of your items
+    //  get - /api/items/user/:userId - show list of your items
     app.get("/api/items/user/:userid", function(req, res) {
         db.Item.findAll({
             where: {
@@ -37,7 +37,7 @@ module.exports = function(app) {
         });
     });
 
-// post - /api/items - add a new item
+    // post - /api/items - add a new item
     app.post("/api/items", function(req, res) {
         console.log(req.user.id);
         db.Item.create({
@@ -50,7 +50,7 @@ module.exports = function(app) {
         });
     });
 
-// update - /api/itmes/:id - update item name or description
+    // update - /api/itmes/:id - update item name or description
     app.put("/api/items", function (req, res) {
         db.Item.update(
             req.body,
@@ -84,13 +84,35 @@ module.exports = function(app) {
             }
         }).then(function(dbBorrow) {
             db.Share.create({
+                name: req.body.name,
                 ItemId: req.params.id,
                 UserId: req.user.id,
-                OwnerId: req.body.UserId
+                OwnerId: req.body.UserId,
+                userName: req.body.userName
             }).then(function(data) {
                 res.json(data);
             });
             res.json(dbBorrow);
         });
-    })
+    });
+
+    // return item and delete it from share table
+    app.put("/api/items/return/:id", function(req, res) {
+        db.Item.update(
+            req.body,
+            {
+                where: {
+                    id: req.body.ItemId
+                }
+            }
+        ).then(function(dbReturn) {
+            db.Share.destroy({
+                where: {
+                    id: req.params.id
+                }
+            }).then(function(data) {
+                res.json(data);
+            });
+        });
+    });
 };

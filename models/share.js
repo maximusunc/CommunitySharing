@@ -1,5 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
 	var Share = sequelize.define("Share", {
+		name: {
+			type: DataTypes.STRING
+		},
+		userName: {
+			type: DataTypes.STRING
+		}
 	});
 
 	Share.associate = function(models) {
@@ -8,11 +14,6 @@ module.exports = function(sequelize, DataTypes) {
 					allowNull: false
 				}
 			});
-		Share.belongsTo(models.User, {as: 'Borrower', 
-			foreignKey: {
-				allowNull: false
-			}
-		});
 		Share.belongsTo(models.Item, {
 			foreignKey: {
 				allowNull: false
