@@ -25,9 +25,9 @@ router.get("/user", function(req, res) {
             user: req.user.name
         };
         db.sequelize.query("SELECT DISTINCT(category) AS category FROM Items WHERE NOT UserId = ? ORDER BY category ASC", {replacements: [req.user.id]}).spread((results, metadata) => {
-            var borrow = { 
+            var categories = { 
                 categories: results.map(elem => elem.category),
-                user: req.user.id
+                userId: req.user.id
             };
             db.Share.findAll({
                 where: {
@@ -35,7 +35,7 @@ router.get("/user", function(req, res) {
                 }
             }).then(function(result) {
                 var borrowed = {
-                    items: result.map(elem => elem.dataValues)
+                    borrowed: result.map(elem => elem.dataValues)
                 };
                 db.Share.findAll({
                     where: {
@@ -43,9 +43,10 @@ router.get("/user", function(req, res) {
                     }
                 }).then(function(result) {
                     var lent = {
-                        items: result.map(elem => elem.dataValues)
+                        lent: result.map(elem => elem.dataValues)
                     };
-                    res.render("user", [items, borrow, borrowed, lent]);
+                    var allItems = Object.assign({}, items, categories, borrowed, lent);
+                    res.render("user", allItems);
                 }); 
             });
         });
@@ -65,6 +66,7 @@ router.get("/borrow/:category", function (req, res) {
             items: result.map(elem => elem),
             name: req.user.name
         };
+        console.log(items.items);
         res.render("borrow", items);
     });
    

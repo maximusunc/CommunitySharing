@@ -1,25 +1,25 @@
 <h4>Your Items</h4>
 <ul>
-    {{#each [0].items}}
-        {{#unless this.borrowed}}
-            <li>{{this.name}} <button class="deleteItem" id={{this.id}}>Delete</button></li>
+    {{#each items}}
+        {{#unless borrowed}}
+            <li>{{name}} <button class="deleteItem" id={{id}}>Delete</button></li>
         {{/unless}}
     {{/each}}
-    {{#each [2].items}}
-        <li>{{this.name}} <button class="returnItem" id={{this.id}} data-id={{this.ItemId}}>Return</button></li>
+    {{#each borrowed}}
+        <li>{{name}} <button class="returnItem" id={{id}} data-id={{ItemId}}>Return</button></li>
     {{/each}}
 </ul>
 <h4>Items Lent</h4>
 <ul>
-    {{#each [3].items}}
-        <li>{{this.name}} lent to: {{this.userName}}</li>
+    {{#each lent}}
+        <li>{{name}} lent to: {{userName}}</li>
     {{/each}}
 </ul>
 
 <h1>Items to Borrow</h1>
 
 <select id="borrow" name="category">
-    {{#each [1].categories}}
+    {{#each categories}}
         <option id={{this}}>{{this}}</option>
     {{/each}}
 </select>
