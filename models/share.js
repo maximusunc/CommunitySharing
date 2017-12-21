@@ -2,6 +2,9 @@ module.exports = function(sequelize, DataTypes) {
 	var Share = sequelize.define("Share", {
 		name: {
 			type: DataTypes.STRING
+		},
+		userName: {
+			type: DataTypes.STRING
 		}
 	});
 

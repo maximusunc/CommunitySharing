@@ -11,10 +11,8 @@
 </ul>
 <h4>Items Lent</h4>
 <ul>
-    {{#each [0].items}}
-        {{#if this.borrowed}}
-            <li>{{this.name}}</li>
-        {{/if}}
+    {{#each [3].items}}
+        <li>{{this.name}} lent to: {{this.userName}}</li>
     {{/each}}
 </ul>
 

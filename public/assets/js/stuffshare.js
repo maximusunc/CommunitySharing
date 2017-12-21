@@ -12,7 +12,7 @@ $(function() {
             data: newItem
         }).then(function() {
             console.log("Successfully created item");
-            //reload page on backend.
+            location.reload();
         });
     });
 
@@ -59,12 +59,14 @@ $(function() {
         var id = $(this).attr("id");
         var userId = $(this).data("id");
         var name = $(this).data("name");
+        var userName = $(this).data("user");
         $.ajax("/api/items/" + id, {
             type: "PUT",
             data: {
                 borrowed: true,
                 UserId: userId,
-                name: name
+                name: name,
+                userName: userName
             }
         }).then(function () {
             console.log("Successfully borrowed");

@@ -3,6 +3,7 @@ var express = require("express");
 var router = express.Router();
 var db = require("../models");
 
+// index page
 router.get("/", function(req, res) {
     if (req.user) {
         res.redirect("/user");
@@ -12,6 +13,7 @@ router.get("/", function(req, res) {
     };
 });
 
+// user page
 router.get("/user", function(req, res) {
     db.Item.findAll({
         where: {
@@ -33,14 +35,24 @@ router.get("/user", function(req, res) {
                 }
             }).then(function(result) {
                 var borrowed = {
-                    items: result.map(elem => elem)
+                    items: result.map(elem => elem.dataValues)
                 };
-                res.render("user", [items, borrow, borrowed]);
+                db.Share.findAll({
+                    where: {
+                        OwnerId: req.user.id
+                    }
+                }).then(function(result) {
+                    var lent = {
+                        items: result.map(elem => elem.dataValues)
+                    };
+                    res.render("user", [items, borrow, borrowed, lent]);
+                }); 
             });
         });
     }); 
 });
 
+// items to borrow page
 router.get("/borrow/:category", function (req, res) {
     db.Item.findAll({
         where: { 
@@ -50,7 +62,8 @@ router.get("/borrow/:category", function (req, res) {
         }
     }).then(function(result){
         var items = {
-            items: result.map(elem => elem)
+            items: result.map(elem => elem),
+            name: req.user.name
         };
         res.render("borrow", items);
     });
