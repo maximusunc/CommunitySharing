@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h4>Your Items</h4>
 <ul>
     {{#each items}}
@@ -15,12 +16,51 @@
         <li>{{name}} lent to: {{userName}}</li>
     {{/each}}
 </ul>
+=======
+<div class="myItems">
+    <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-list" aria-hidden="true"></span><h4>Your Items</h4>
+        <ul>
+            {{#each [0].items}}
+                {{#unless this.borrowed}}
+                    <li>{{this.name}} <button class="deleteItem" id={{this.id}}>Delete</button></li>
+                {{/unless}}
+            {{/each}}
+            {{#each [2].items}}
+                <li>{{this.name}} <button class="returnItem" id={{this.id}} data-id={{this.ItemId}}>Return</button></li>
+            {{/each}}
+        </ul>
+    </button>
+</div>
+>>>>>>> 0d70100a1883b8b423f636419170aeb0df129074
 
-<h1>Items to Borrow</h1>
+<div class="lentItems">
+    <button type="button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span><h4>Items Lent</h4>
+        <ul>
+            {{#each [3].items}}
+                <li>{{this.name}} lent to: {{this.userName}}</li>
+            {{/each}}
+        </ul>
+    </button>
+</div>
 
+<<<<<<< HEAD
 <select id="borrow" name="category">
     {{#each categories}}
         <option id={{this}}>{{this}}</option>
     {{/each}}
 </select>
 <button type="submit" id="borrowItem">Submit</button>
+=======
+<div class="borrowItems">
+    <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+    <h4>Items to Borrow</h4>
+    <select id="borrow" name="category">
+        {{#each [1].categories}}
+            <option id={{this}}>{{this}}</option>
+        {{/each}}
+    </select>
+    <button type="submit" id="borrowItem">Submit</button>
+</div>
+>>>>>>> 0d70100a1883b8b423f636419170aeb0df129074
