@@ -41,7 +41,10 @@ var options = {
 };
 
 var option2 = {
-	use_env_variable: "JAWSDB_URL"
+	host: "ol5tz0yvwp930510.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+	user: "up8w38pe1akce43f",
+	password: "cscl9uv62a4k4qwy",
+	database: "tx7nfvxss9slw8m2"
 };
 
 var sessionStore = new MySQLStore(option2);
