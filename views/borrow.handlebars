@@ -1,10 +1,12 @@
-<h1>Items Available to Borrow in {{items.[0].dataValues.category}}</h1>
+<h1 id="borrowHeader">Items Available to Borrow in {{items.[0].dataValues.category}}</h1>
 
+<div id="itemsAvailable">
+    <br>
+    {{#each items}}
+        <li>{{this.name}}
+            <button class="borrow" id={{this.id}} data-id={{this.UserId}} data-name={{this.name}} data-user={{../name}}>Borrow</button>
+        </li>
+    {{/each}}
+</div>
 
-{{#each items}}
-    <li>{{this.name}}
-        <button class="borrow" id={{this.id}} data-id={{this.UserId}} data-name={{this.name}} data-user={{../name}}>Borrow</button>
-    </li>
-{{/each}}
-
-<button id="goBack">Go Back</button>
+<p id="button"><button id="goBack">Go Back</button></p>

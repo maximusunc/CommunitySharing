@@ -31,14 +31,55 @@ h3 {
   padding: 1%;
 }
 
+#userName {
+  width: 25%;
+  font-size: 50px;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: orange;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.borrowItems h4, .lentItems h4, .myItems h4 {
+  font-size: 40px;
+  color: orange;
+  text-align: center;
+}
+
+.myItems li {
+  margin: 20px 0px;
+  font-size: 20px;
+  margin-left: 100px;
+}
+
+.lentItems li {
+  margin: 20px 0px;
+  font-size: 20px;
+  margin-left: 100px;
+}
+
+.borrowItems select, .borrowItems button {
+  font-size: 25px;
+  margin-left: 65px;
+}
+
+.myItems .returnItem {
+  margin-left: 20px;
+}
+
 p {
   font-size: 14px;
   color: orange;
 }
 
-footer {
+footer p {
   font-size: 24px;
-  color: #ece9e6;
+  text-align: center;
+  padding: 5px 0px;
+  background-color: rgba(255, 255, 255, 0.85);
+  border-radius: 25%;
 }
 
 .jumbotron {
@@ -75,6 +116,70 @@ footer {
   width: 100%;
   margin: 15px 0px;
 }
+
+.myItems {
+  float: left;
+  display: inline-block;
+  width: 31%;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.lentItems {
+  display: inline-block;
+  width: 31%;
+  height: 400px;
+  margin-left: 55px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+.borrowItems {
+  float: right;
+  display: inline-block;
+  width: 31%;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#borrowHeader {
+  color: orange;
+  font-size: 50px;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 30px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+#itemsAvailable {
+  width: 50%;
+  margin: auto;
+  height: 400px;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 10px;
+}
+
+#itemsAvailable li {
+  width: 50%;
+  margin: 15px auto;
+  font-size: 20px;
+  text-align: center;
+}
+
+#goBack {
+  font-size: 20px;
+  padding: 5px;
+  margin: auto;
+  color: black;
+}
+
+#button {
+  margin-top: 20px;
+  text-align: center;
+}
+
 
 /* Extra small devices (portrait phones, less than 576px)
 // No media query since this is the default in Bootstrap
