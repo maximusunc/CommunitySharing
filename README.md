@@ -11,23 +11,23 @@ Technologies:
 
 Here's how it works:
 <br>
-1. You log in
+1: You log in
 <br>
 ![Login Page](public/assets/images/StuffShareLogin.png)<br>
 <br>
-2. You can create a new user
+2: You can create a new user
 <br>
 ![New User](public/assets/images/StuffShareNewUser.png)<br>
 <br>
-3. You are logged into the User Page
+3: You are logged into the User Page
 <br>
 ![User Page](public/assets/images/StuffShareUserPage.png)<br>
 <br>
-4. You can create a new item
+4: You can create a new item
 <br>
 ![New Item](public/assets/images/StuffShareNewItem.png)<br>
 <br>
-5. You can borrow any available item
+5: You can borrow any available item
 <br>
 ![Borrow Item](public/assets/images/StuffShareBorrow.png)<br>
 <br>
