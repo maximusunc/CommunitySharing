@@ -12,5 +12,5 @@ Technologies:
 Here's how it works:
 <br>
 1. You Login
-![Login Page](assets/images/StuffShareLogin.jpg)
+![Login Page](assets/images/StuffShareLogin.png)
 <br>
