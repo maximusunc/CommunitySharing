@@ -9,27 +9,27 @@
 - Mocha, Chai, Nightmare
 
 
-Here's how it works:
+## Here's how it works:
 
-1: You log in
+#### 1: You log in
 
 ![Login Page](public/assets/images/StuffShareLogin.png)
 
-2: You can create a new user
+#### 2: You can create a new user
 
 ![New User](public/assets/images/StuffShareNewUser.png)
 
-3: You are logged into the User Page
+#### 3: You are logged into the User Page
 
 ![User Page](public/assets/images/StuffShareUserPage.png)
 
-4: You can create a new item
+#### 4: You can create a new item
 
 ![New Item](public/assets/images/StuffShareNewItem.png)
 
-5: You can borrow any available item
+#### 5: You can borrow any available item
 
 ![Borrow Item](public/assets/images/StuffShareBorrow.png)
 
 
-This app was created by Max Wang, Matthew Nagy, Dan Weiger, and Jason Kulasingam
+_This app was created by Max Wang, Matthew Nagy, Dan Weiger, and Jason Kulasingam_
