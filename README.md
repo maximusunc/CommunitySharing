@@ -12,19 +12,19 @@ Technologies:
 Here's how it works:
 <br>
 1. You Login
-![Login Page](public/assets/images/StuffShareLogin.png)
+![Login Page](public/assets/images/StuffShareLogin.png);
 <br>
 2. You can create a new user
-![New User](public/assets/images/StuffShareNewUser.png)
+![New User](public/assets/images/StuffShareNewUser.png);
 <br>
 3. You are logged into the User Page
-![User Page](public/assets/images/StuffShareUserPage.png)
+![User Page](public/assets/images/StuffShareUserPage.png);
 <br>
 4. You can create a new item
-![New Item](public/assets/images/StuffShareNewItem.png)
+![New Item](public/assets/images/StuffShareNewItem.png);
 <br>
 5. You can borrow any available item
-![Borrow Item](public/assets/images/StuffShareBorrow.png)
+![Borrow Item](public/assets/images/StuffShareBorrow.png);
 <br>
 <br>
 This app was created by Max Wang, Matthew Nagy, Dan Weiger, and Jason Kulasingam
